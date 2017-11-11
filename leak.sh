@@ -3,12 +3,12 @@
 for i in $(seq 5); do
   (
     while true; do
-    docker run -d -p 8080:80 nextcloud  
-    sleep 1
+      docker run --rm busybox
+      docker run --rm alpine
+      sleep 1
     done
   )&
 done
 
 sleep 10
-pkill -f test.sh
-
+pkill -f leak.sh

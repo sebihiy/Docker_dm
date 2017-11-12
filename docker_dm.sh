@@ -5,8 +5,8 @@ VG=data
  
 ### thinpool && direct LVM
 
-pvcreate $VP && \
-vgcreate $VG $VP && \
+pvcreate $VP 
+vgcreate $VG $VP 
 lvcreate --wipesignatures y -n pooldata $VG -l 95%VG
 lvcreate --wipesignatures y -n poolmeta $VG -l 1%VG
 lvconvert -y --zero n -c 512K --thinpool $VG/pooldata --poolmetadata $VG/poolmeta 
